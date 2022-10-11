@@ -1,0 +1,11 @@
+[package]
+name = "freya-hackernews"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+freya = { git = "https://github.com/marc2332/freya" }
+dioxus = { git = "https://github.com/marc2332/dioxus", branch = "fix/remove-node-listeners"  }
+reqwest = { version = "0.11.12", features = ["json"] }
+serde = "1.0.145"
+futures = "0.3.24"
