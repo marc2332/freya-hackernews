@@ -48,10 +48,11 @@ impl Client {
                 .for_each_concurrent(8, move |story_id| {
                     let stories = stories.clone();
                     async move {
+                        let story = self.get_story_by_id(*story_id).await.unwrap();
                         stories
                             .lock()
                             .await
-                            .push(self.get_story_by_id(*story_id).await.unwrap())
+                            .push(story);
                     }
                 })
                 .await;
